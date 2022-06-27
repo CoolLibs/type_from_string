@@ -57,8 +57,8 @@ struct from_impl<"vec4"> {
 };
 
 template<>
-struct from_impl<"Color"> {
-    using type = Cool::Color;
+struct from_impl<"RgbColor"> {
+    using type = Cool::RgbColor;
 };
 
 template<>
