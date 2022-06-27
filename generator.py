@@ -13,6 +13,7 @@ def all_associations():
         "glm::vec4":   ["float4", "vec4"],
         "Cool::Color": ["Color"],
         "Cool::Angle": ["Angle"],
+        "Cool::Direction2D":["Direction2D"],
         "Cool::Hue":   ["Hue"],
     }
 

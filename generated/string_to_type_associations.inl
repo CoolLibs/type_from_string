@@ -67,6 +67,11 @@ struct from_impl<"Angle"> {
 };
 
 template<>
+struct from_impl<"Direction2D"> {
+    using type = Cool::Direction2D;
+};
+
+template<>
 struct from_impl<"Hue"> {
     using type = Cool::Hue;
 };
