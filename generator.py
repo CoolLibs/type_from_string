@@ -39,15 +39,15 @@ struct from_impl<"{value}"> {{
 
 
 def evaluate_function_template():
-    out = "#define TFS_EVALUATE_FUNCTION_TEMPLATE(function_template, type_as_string) \\\n"
-    out += "([&]() { \\\n"
+    out = "#define TFS_EVALUATE_FUNCTION_TEMPLATE(function_template, type_as_string, out_type, arguments) \\\n"
+    out += "([&]() -> out_type { \\\n"
     is_first = True
     for key, values in all_associations().items():
         for value in values:
-            out += f'{"else " if not is_first else ""}if ((type_as_string) == "{value}") return function_template<{key}>();' + "\\\n"
+            out += f'{"else " if not is_first else ""}if ((type_as_string) == "{value}") return function_template<{key}>arguments;' + "\\\n"
             is_first = False
 
-    out += f'else {{ assert(false && "Unknown type!"); return function_template<{list(all_associations().keys())[0]}>(); }} \\\n}})()'
+    out += f'else {{ assert(false && "Unknown type!"); return function_template<{list(all_associations().keys())[0]}>arguments; }} \\\n}})()'
     return out
 
 
