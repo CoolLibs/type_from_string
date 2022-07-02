@@ -16,8 +16,10 @@ else if ((type_as_string) == "float3") return function_template<glm::vec3>();\
 else if ((type_as_string) == "vec3") return function_template<glm::vec3>();\
 else if ((type_as_string) == "float4") return function_template<glm::vec4>();\
 else if ((type_as_string) == "vec4") return function_template<glm::vec4>();\
-else if ((type_as_string) == "Color") return function_template<Cool::Color>();\
+else if ((type_as_string) == "RgbColor") return function_template<Cool::RgbColor>();\
 else if ((type_as_string) == "Angle") return function_template<Cool::Angle>();\
+else if ((type_as_string) == "Direction2D") return function_template<Cool::Direction2D>();\
 else if ((type_as_string) == "Hue") return function_template<Cool::Hue>();\
+else if ((type_as_string) == "ColorPalette") return function_template<Cool::ColorPalette>();\
 else { assert(false && "Unknown type!"); return function_template<bool>(); } \
 })()

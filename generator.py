@@ -5,15 +5,17 @@
 
 def all_associations():
     return {
-        "bool":        ["bool"],
-        "int":         ["int"],
-        "float":       ["float",  "vec1"],
-        "glm::vec2":   ["float2", "vec2"],
-        "glm::vec3":   ["float3", "vec3"],
-        "glm::vec4":   ["float4", "vec4"],
-        "Cool::Color": ["Color"],
-        "Cool::Angle": ["Angle"],
-        "Cool::Hue":   ["Hue"],
+        "bool":               ["bool"],
+        "int":                ["int"],
+        "float":              ["float",  "vec1"],
+        "glm::vec2":          ["float2", "vec2"],
+        "glm::vec3":          ["float3", "vec3"],
+        "glm::vec4":          ["float4", "vec4"],
+        "Cool::RgbColor":     ["RgbColor"],
+        "Cool::Angle":        ["Angle"],
+        "Cool::Direction2D":  ["Direction2D"],
+        "Cool::Hue":          ["Hue"],
+        "Cool::ColorPalette": ["ColorPalette"],
     }
 
 
