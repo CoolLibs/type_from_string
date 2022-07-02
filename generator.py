@@ -71,6 +71,20 @@ struct from_impl<"{value}"> {{
     return out
 
 
+def evaluate_function_template():
+    out = "#define TFS_EVALUATE_FUNCTION_TEMPLATE(function_template, type_as_string) \\\n"
+    out += "([&]() { \\\n"
+    is_first = True
+    for key, values in all_associations().items():
+        for value in values:
+            out += f'{"else " if not is_first else ""}if ((type_as_string) == "{value}") return function_template<{key}>();' + "\\\n"
+            is_first = False
+
+    out += f'else {{ assert(false && "Unknown type!"); return function_template<{list(all_associations().keys())[0]}>(); }} \\\n}})()'
+    return out
+
+
 clear_generated_folder()
 generate("string_to_type_associations")
 generate("includes")
+generate("evaluate_function_template")

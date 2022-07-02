@@ -1,3 +1,5 @@
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include <doctest/doctest.h>
 #include <type_from_string/type_from_string.hpp>
 
 static_assert(
@@ -12,4 +14,27 @@ static_assert(
         bool>
 );
 
-int main() {}
+template<typename T>
+auto say_type() -> std::string
+{
+    return "FAILED";
+}
+template<>
+auto say_type<int>() -> std::string
+{
+    return "I say INT";
+}
+template<>
+auto say_type<float>() -> std::string
+{
+    return "I say FLOAT";
+}
+
+TEST_CASE("At runtime")
+{
+    std::string type_as_string = "int";
+    CHECK(
+        TFS_EVALUATE_FUNCTION_TEMPLATE(say_type, type_as_string) ==
+        "I say INT"
+    );
+}
