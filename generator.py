@@ -15,7 +15,7 @@ def all_associations():
         "Cool::Angle":        ["Angle"],
         "Cool::Direction2D":  ["Direction2D"],
         "Cool::Hue":          ["Hue"],
-        "Cool::ColorPalette": ["ColorPalette"],
+        # "Cool::ColorPalette": ["ColorPalette"],
     }
 
 
