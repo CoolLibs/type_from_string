@@ -20,5 +20,5 @@ else if ((type_as_string) == "RgbColor") return function_template<Cool::RgbColor
 else if ((type_as_string) == "Angle") return function_template<Cool::Angle>arguments;\
 else if ((type_as_string) == "Direction2D") return function_template<Cool::Direction2D>arguments;\
 else if ((type_as_string) == "Hue") return function_template<Cool::Hue>arguments;\
-else { assert(false && "Unknown type!"); return function_template<bool>arguments; } \
+else { throw std::runtime_error{"Unknown type \"" + std::string{type_as_string} + "\""};  } \
 })()

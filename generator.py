@@ -47,7 +47,7 @@ def evaluate_function_template():
             out += f'{"else " if not is_first else ""}if ((type_as_string) == "{value}") return function_template<{key}>arguments;' + "\\\n"
             is_first = False
 
-    out += f'else {{ assert(false && "Unknown type!"); return function_template<{list(all_associations().keys())[0]}>arguments; }} \\\n}})()'
+    out += f'else {{ throw std::runtime_error{{"Unknown type \\"" + std::string{{type_as_string}} + "\\""}};  }} \\\n}})()'
     return out
 
 
